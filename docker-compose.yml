@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  app:
+    image: node:14
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MONGO_HOST: mongo
+      MONGO_USER: root
+      MONGO_PASSWORD: dicoding
+      MONGO_DB: app-db
+
+  mongo:
+    image: mongo:3
+    volumes:
+      - todo-mysql-data:/var/lib/mongo
+    environment:
+      MONGO_ROOT_PASSWORD: dicoding
+      MONGO_DATABASE: app-db
+
+
+volumes:
+
+  todo-mysql-data:
