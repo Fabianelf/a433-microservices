@@ -11,7 +11,7 @@ ENV NODE_ENV=production DB_HOST=item-db
 # npm install --production --unsafe-perm untuk menginstall dependensi project
 # npm run build untuk membuild projeknya
 RUN npm install --production --unsafe-perm && npm run build
-# Perintah yang dijalankan ketika container running
-CMD ["node", "src/index.js"]
 # Mengekspos port yang dipakai container pada :8080
 EXPOSE 8080
+# Perintah yang dijalankan ketika container running
+CMD ["npm", "start"]
