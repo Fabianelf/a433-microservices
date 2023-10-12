@@ -12,6 +12,8 @@ services:
     working_dir: /app
     # Mendefiniskan volume yang dipakai, yaitu pada working directory yang sudah dibuat sebelumnya
     volumes: ./:/app
+    # Mendefiniskan memastikan item-app hanya berjalan setelah item-db diluncurkan.
+    depends_on: mongo
     # Mendefiniskan restart policy yang jika container gagal berjalan, akan dilakukan restart otomatis
     restart: on-failure
 # Mendefinisikan service ke-2 yaitu item-db
